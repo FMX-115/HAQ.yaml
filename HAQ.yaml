@@ -1,0 +1,661 @@
+views:
+  - type: sections
+    path: qassim
+    max_columns: 4
+    dense_section_placement: false
+    title: قائمة القصيم
+    icon: mdi:home
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            heading_style: title
+            heading: الحوش الأمامي
+            icon: mdi:palm-tree
+            layout_options:
+              grid_columns: 4
+              grid_rows: 1
+            badges: []
+          - type: custom:mushroom-light-card
+            entity: light.lmbt_lmwqf
+            name: لمبات المواقف
+            fill_container: true
+            use_light_color: true
+            show_brightness_control: true
+            show_color_control: true
+            show_color_temp_control: true
+            collapsible_controls: true
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+            visibility:
+              - condition: state
+                entity: sun.sun
+                state: below_horizon
+          - type: custom:mushroom-cover-card
+            entity: cover.jrj_lqsym_msg100_main_channel
+            name: جراج القصيم
+            show_position_control: false
+            show_tilt_position_control: false
+            show_buttons_control: true
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.hss_bb_lshr_lshmly_w_door
+            name: باب الشارع الشمالي
+            layout_options:
+              grid_columns: 2
+              grid_rows: 2
+          - type: entity
+            entity: switch.lmbt_lmsbh
+            name: لمبات المسبح
+            icon: mdi:pool
+            state_color: true
+            layout_options:
+              grid_columns: 2
+              grid_rows: 2
+          - type: entity
+            entity: switch.nfwr_lmsbh_socket_1
+            name: نافورة المسبح
+            state_color: true
+            icon: mdi:fountain
+          - type: entities
+            entities:
+              - entity: switch.lmbt_lhdyq_lmmy
+                icon: mdi:tree
+              - entity: switch.lmbt_jls_lmsbh
+                icon: mdi:chair-rolling
+              - entity: switch.lmb_mdkhl_lhwsh_lmmy_switch_1
+                name: لمبة مدخل الحوش الأمامي
+                icon: mdi:light-flood-down
+              - entity: switch.lmbt_mdkhl_lrjl_lkhrjy_switch_1
+                name: لمبات مدخل الرجال الخارجية
+                icon: mdi:spotlight
+            state_color: true
+            show_header_toggle: true
+            title: لمبات الحوش الأمامي
+            layout_options:
+              grid_columns: full
+              grid_rows: 4
+            visibility:
+              - condition: state
+                entity: sun.sun
+                state: below_horizon
+          - type: entities
+            entities:
+              - entity: switch.lmbt_lswr
+                icon: mdi:outdoor-lamp
+            state_color: true
+            show_header_toggle: false
+            visibility:
+              - condition: state
+                entity: sun.sun
+                state: below_horizon
+          - type: heading
+            heading: الحوش الخلفي
+            heading_style: title
+            icon: mdi:fountain
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.hss_bb_by_w_door
+            name: حساس باب الجراج الخلفي
+            fill_container: false
+            layout_options:
+              grid_columns: 4
+              grid_rows: 1
+          - type: entities
+            entities:
+              - entity: switch.lmbt_lhdyq_lkhlfy_switch_1
+                icon: mdi:fountain
+                name: ‏لمبات الحديقة الخلفية
+              - entity: switch.lmb_lrtdd_lgrby_switch_1
+                icon: mdi:cube
+                name: لمبة الارتداد الغربي
+              - entity: switch.lmbt_mlhq_lns_switch_1
+                icon: mdi:spotlight
+                name: لمبات ملحق النساء الخارجية
+              - entity: switch.lmb_ldynmw_w_hwd_lshjr
+                icon: mdi:grass
+              - entity: switch.lmbt_lmshb_lkhrjy_switch_1
+                name: لمبات المشب الخارجية
+                icon: mdi:spotlight
+            state_color: true
+            title: لمبات الحوش الخلفي
+            visibility:
+              - condition: state
+                entity: sun.sun
+                state: below_horizon
+          - type: heading
+            heading: المشب
+            heading_style: title
+            icon: mdi:fire
+          - type: custom:mushroom-light-card
+            entity: light.lmb_lmshb
+            use_light_color: true
+            show_color_temp_control: true
+            show_color_control: true
+            show_brightness_control: true
+            collapsible_controls: true
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+          - type: entity
+            entity: sensor.gsl_lmshb
+            state_color: true
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+          - type: heading
+            heading: ملحق الرجال
+            heading_style: title
+            icon: mdi:human-male-male
+          - type: entities
+            entities:
+              - entity: scene.tshgyl_mkyf_mlhq_lrjl
+                icon: mdi:air-conditioner
+              - entity: scene.tf_mkyf_mlhq_lrjl
+                icon: mdi:air-conditioner
+            title: مكيف ملحق الرجال
+            state_color: true
+            layout_options:
+              grid_columns: 4
+              grid_rows: 3
+          - type: entities
+            entities:
+              - entity: light.bjwr_mlhq_lrjl
+              - entity: switch.lmbt_mlhq_lrjl_switch_1
+                icon: mdi:led-strip-variant
+              - entity: switch.lmbt_mlhq_lrjl_switch_2
+                icon: mdi:spotlight
+              - entity: switch.lmbt_mlhq_lrjl_switch_3
+                icon: mdi:lightbulb-spot
+            title: لمبات ملحق الرجال
+            state_color: true
+            show_header_toggle: true
+          - type: custom:mushroom-light-card
+            entity: light.lmbt_br_mlhq_lrjl
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+            use_light_color: true
+            show_brightness_control: true
+            show_color_control: true
+            show_color_temp_control: true
+            collapsible_controls: false
+          - type: heading
+            heading_style: title
+            heading: ملحق النساء
+            icon: mdi:human-female-female
+          - type: entities
+            entities:
+              - entity: scene.tshgyl_mkyf_mlhq_lns
+                icon: mdi:air-conditioner
+              - entity: scene.tf_mkyf_mlhq_lns
+                icon: mdi:air-conditioner
+            state_color: true
+            title: مكيف ملحق النساء
+          - type: entities
+            entities:
+              - entity: switch.lmbt_mlhq_lns_switch_2
+                icon: mdi:led-strip-variant
+                name: ليد ملحق النساء
+              - entity: switch.lmbt_mlhq_lns_switch_3
+                icon: mdi:lightbulb-spot
+              - entity: switch.lyd_tlfzywn_mlhq_lns_socket_1
+                icon: mdi:led-strip-variant
+              - entity: switch.lmbt_mlhq_lns_switch_1
+                name: 'لمبات ملحق النساء الخارجية '
+                icon: mdi:spotlight
+            title: لمبات ملحق النساء
+            state_color: true
+        column_span: 1
+      - type: grid
+        cards:
+          - type: heading
+            icon: mdi:account
+            heading: الدور الاول
+            heading_style: title
+          - type: heading
+            icon: mdi:fridge
+            heading_style: title
+            heading: '                                           المطبخ'
+          - type: custom:mushroom-light-card
+            entity: light.lmbt_ldrysh
+            use_light_color: true
+            show_color_temp_control: true
+            show_brightness_control: true
+            show_color_control: true
+            collapsible_controls: true
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+            icon: mdi:ceiling-light-multiple
+          - type: entity
+            entity: switch.mkyf_lmtbkh_switch_1
+            icon: mdi:air-conditioner
+            name: مكيف المطبخ
+            state_color: true
+          - type: entity
+            entity: switch.lmbt_lmtbkh_2_switch_1
+            name: المروحة
+            icon: mdi:fan
+          - type: entities
+            entities:
+              - entity: switch.lmbt_lmtbkh_1_switch_1
+                icon: mdi:lightbulb-spot
+                name: لمبات الطبخ ١
+              - entity: switch.lmbt_lmtbkh_1_switch_2
+                icon: mdi:lightbulb-spot
+                name: لمبات المطبخ ٢
+              - entity: switch.lmbt_lmtbkh_1_switch_3
+                icon: mdi:lightbulb-spot
+                name: لمبات المطبخ ٣
+            title: لمبات المطبخ
+            state_color: true
+          - type: entities
+            entities:
+              - entity: switch.lmbt_lmtbkh_2_switch_2
+                icon: mdi:lightbulb-spot
+              - entity: switch.lmbt_lmtbkh_2_switch_3
+                icon: mdi:lightbulb-spot
+                name: لمبة المطبخ 4
+              - entity: cover.shutter_lmtbkh_curtain
+                name: شتر المطبخ
+                icon: mdi:window-shutter
+            title: لمبات المطبخ
+            state_color: true
+            layout_options:
+              grid_columns: 4
+              grid_rows: 4
+          - type: heading
+            icon: mdi:human-female-female
+            heading_style: title
+            heading: مجلس النساء
+            badges:
+              - type: entity
+                entity: binary_sensor.hss_we_z_motion
+              - type: entity
+                entity: binary_sensor.hss_bb_we_z_door
+          - type: custom:mushroom-climate-card
+            entity: climate.mkyf_mjls_lns_1
+            layout_options:
+              grid_columns: 2
+              grid_rows: 3
+            show_temperature_control: true
+            collapsible_controls: true
+            icon: mdi:air-conditioner
+          - type: custom:mushroom-climate-card
+            entity: climate.mkyf_mjls_lns_2
+            icon: mdi:air-conditioner
+            layout_options:
+              grid_columns: 2
+              grid_rows: 3
+            show_temperature_control: true
+            collapsible_controls: true
+          - type: entities
+            entities:
+              - entity: binary_sensor.hss_we_z_motion
+                name: 🟪 ‏حساس مدخل النساء
+              - entity: binary_sensor.hss_bb_we_z_door
+                name: 🟪 ‏حساس ‏باب مدخل النساء
+              - entity: switch.lmbt_mdkhl_lns_switch_1
+                name: ‏لمبات مدخل النساء
+                icon: mdi:lightbulb-spot
+              - entity: binary_sensor.hss_esf1_z_motion
+                name: 🟩 ‏حساس ‏درج الشقة الشرقية
+              - entity: switch.lmb_mdkhl_lshq_lshrqy_switch_1
+                name: ‏لمبة مدخل الشقة الشرقية
+                icon: mdi:spotlight
+            layout_options:
+              grid_columns: 4
+              grid_rows: 4
+            state_color: true
+            show_header_toggle: false
+          - type: heading
+            icon: mdi:table-chair
+            heading: المقلط
+            heading_style: title
+            badges:
+              - type: entity
+                entity: binary_sensor.hss_wsf1_z_motion
+              - type: entity
+                entity: binary_sensor.hss_bb_wse_z_door
+          - type: custom:mushroom-climate-card
+            entity: climate.mkyf_lmqlt_1
+            layout_options:
+              grid_columns: 2
+              grid_rows: 3
+            icon: mdi:air-conditioner
+            show_temperature_control: true
+            collapsible_controls: true
+          - type: custom:mushroom-climate-card
+            entity: climate.mkyf_lmqlt_2
+            icon: mdi:air-conditioner
+            show_temperature_control: true
+            layout_options:
+              grid_columns: 2
+              grid_rows: 3
+            collapsible_controls: true
+          - type: entities
+            entities:
+              - entity: binary_sensor.hss_wsf1_z_motion
+                name: 🟨 ‏حساس مدخل الشقة الغربية
+              - entity: binary_sensor.hss_bb_wse_z_door
+                name: 🟨 ‏حساس باب مدخل الشقة الغربية
+              - entity: switch.lmbt_mdkhl_lshq_lgrby_switch_1
+                icon: mdi:spotlight
+                name: ‏لمبات مدخل الشقة ‏الغربية
+            show_header_toggle: false
+            state_color: true
+          - type: heading
+            icon: mdi:human-male-male
+            heading: مجلس الرجال
+            heading_style: title
+            badges:
+              - type: entity
+                entity: binary_sensor.hss_me_z_motion
+              - type: entity
+                entity: binary_sensor.hss_bb_me_z_door
+          - type: custom:mushroom-climate-card
+            entity: climate.mkyf_mjls_lrjl_1
+            icon: mdi:air-conditioner
+            show_temperature_control: true
+            collapsible_controls: true
+            layout_options:
+              grid_columns: 2
+              grid_rows: 3
+          - type: custom:mushroom-climate-card
+            entity: climate.mkyf_mjls_lrjl_2
+            icon: mdi:air-conditioner
+            show_temperature_control: true
+            collapsible_controls: true
+            layout_options:
+              grid_columns: 2
+              grid_rows: 3
+          - type: entities
+            entities:
+              - entity: binary_sensor.hss_me_z_motion
+                name: 🟦 ‏حساس مدخل الرجال
+              - entity: binary_sensor.hss_bb_me_z_door
+                name: 🟦 ‏حساس باب مدخل الرجال
+              - entity: switch.lmbt_dwr_myh_lrjl_switch_1
+                icon: mdi:lightbulb-spot
+                name: ‏لمبات دورة مياه الرجال 1
+              - entity: switch.lmbt_dwr_myh_lrjl_switch_2
+                icon: mdi:lightbulb-spot
+                name: ‏لمبات دورة مياه رجال 1
+            state_color: true
+            show_header_toggle: false
+          - type: heading
+            icon: mdi:home-floor-2
+            heading: الطابق الثاني
+            heading_style: title
+            layout_options:
+              grid_columns: 8
+              grid_rows: 1
+          - type: heading
+            icon: mdi:alpha-e
+            heading_style: title
+            layout_options:
+              grid_columns: 8
+              grid_rows: 1
+            heading: الشقة الشرقية
+          - type: heading
+            icon: mdi:dumbbell
+            heading_style: title
+            heading: النادي والبار
+            layout_options:
+              grid_columns: 8
+              grid_rows: 1
+            badges:
+              - type: entity
+                show_state: true
+                show_icon: true
+                entity: binary_sensor.hss_lndy_w_motion
+                color: accent
+                state_content: 'yes'
+          - type: custom:mushroom-climate-card
+            entity: climate.mkyf_lndy_1
+            icon: mdi:air-conditioner
+            collapsible_controls: true
+            show_temperature_control: true
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+          - type: custom:mushroom-light-card
+            entity: light.bjwr_lndy
+            show_brightness_control: true
+            use_light_color: true
+            show_color_temp_control: true
+            show_color_control: true
+            collapsible_controls: true
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+            icon: mdi:lamp
+          - type: custom:mushroom-climate-card
+            entity: climate.mkyf_lndy_2
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+            icon: mdi:air-conditioner
+            show_temperature_control: false
+          - type: entities
+            entities:
+              - entity: switch.lmbt_lndy_switch_1
+                icon: mdi:led-strip-variant
+                name: لمبات النادي
+              - entity: switch.lmbt_lbr_switch_1
+                icon: mdi:ceiling-light-multiple
+                name: لمبات البار
+              - entity: switch.lmbt_lbr_switch_2
+                icon: mdi:lightbulb-spot
+                name: لمبات دورة مياه البار
+            layout_options:
+              grid_columns: 4
+              grid_rows: auto
+            state_color: true
+            show_header_toggle: false
+          - type: custom:mushroom-climate-card
+            entity: climate.mkyf_br_lndy
+            icon: mdi:air-conditioner
+            show_temperature_control: true
+            collapsible_controls: true
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+          - type: heading
+            icon: mdi:bed
+            heading: غرفة النوم القريبة من بار النادي
+            heading_style: title
+          - type: custom:mushroom-climate-card
+            entity: climate.mkyf_grf_lnwm_lqryb_mn_br_lndy
+            name: مكيف غرفة البار
+            icon: mdi:air-conditioner
+            show_temperature_control: true
+            collapsible_controls: true
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+          - type: custom:mushroom-cover-card
+            entity: cover.shutter_grf_lbr_curtain
+            icon: mdi:window-shutter
+            show_tilt_position_control: false
+            show_position_control: false
+            show_buttons_control: true
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+            secondary_info: none
+            name: شتر غرفة البار
+          - type: heading
+            heading: غرفة النوم المطلة على المسبح
+            heading_style: title
+            icon: mdi:bed-king
+          - type: custom:mushroom-cover-card
+            entity: cover.shutter_lgrf_lryysy_curtain
+            show_position_control: false
+            show_tilt_position_control: false
+            show_buttons_control: true
+            secondary_info: none
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+            icon: mdi:window-shutter
+          - type: custom:mushroom-climate-card
+            entity: climate.mkyf_grf_lnwm_lmtl_lmsbh
+            icon: mdi:air-conditioner
+            show_temperature_control: true
+            collapsible_controls: true
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+          - type: custom:mushroom-light-card
+            entity: light.lmbt_lgrf_lmtl_l_lmsyh
+            show_brightness_control: true
+            use_light_color: true
+            show_color_temp_control: true
+            show_color_control: true
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+            icon: mdi:lamps
+          - type: heading
+            icon: mdi:alpha-w
+            heading: الشقة الغربية
+            heading_style: title
+          - type: heading
+            icon: mdi:sofa
+            heading: الصالة و القبة
+            heading_style: title
+          - type: custom:mushroom-climate-card
+            entity: climate.mkyf_lsl
+            show_temperature_control: true
+            collapsible_controls: true
+            icon: mdi:air-conditioner
+            layout_options:
+              grid_columns: 2
+              grid_rows: 2
+          - type: custom:mushroom-climate-card
+            entity: climate.mkyf_lqb
+            icon: mdi:air-conditioner
+            show_temperature_control: true
+            collapsible_controls: true
+            layout_options:
+              grid_columns: 2
+              grid_rows: 2
+          - type: custom:mushroom-light-card
+            entity: light.bjwr_lsl
+            show_brightness_control: true
+            use_light_color: true
+            show_color_temp_control: true
+            show_color_control: true
+            collapsible_controls: true
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+            icon: mdi:lamp
+          - type: heading
+            icon: mdi:balcony
+            heading_style: title
+            heading: غرفة البلكونة
+          - type: custom:mushroom-climate-card
+            entity: climate.mkyf_lblkwn
+            icon: mdi:air-conditioner
+            show_temperature_control: true
+            collapsible_controls: true
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+          - type: entities
+            entities:
+              - entity: switch.lmb_lblkwn_switch_1
+                icon: mdi:wall-sconce
+                name: لمبة غرفة البلكونة
+              - entity: binary_sensor.hss_grf_lblkwn_z_motion
+                name: حساس غرفة البلكونة
+            state_color: true
+            show_header_toggle: false
+          - type: heading
+            icon: mdi:theater
+            heading_style: title
+            heading: جناح السينما
+          - type: custom:mushroom-climate-card
+            entity: climate.mkyf_lsynm
+            icon: mdi:air-conditioner
+            show_temperature_control: true
+            collapsible_controls: true
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+          - type: custom:mushroom-climate-card
+            icon: mdi:air-conditioner
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+            show_temperature_control: true
+            collapsible_controls: true
+            entity: climate.mkyf_mtbkh_lsynm
+          - type: entities
+            entities:
+              - entity: switch.lmb_mtbkh_lsynm_switch_1
+                icon: mdi:wall-sconce
+              - entity: switch.lmbt_mtbkh_lsynm_switch_1
+                icon: mdi:lightbulb-spot
+              - entity: binary_sensor.hss_mtbkh_lsynm_z_motion
+                name: 🟩 ‏حساس مطبخ السينما
+            state_color: true
+            show_header_toggle: true
+            title: لمبات مطبخ السينما
+            layout_options:
+              grid_columns: 4
+              grid_rows: 4
+          - type: entities
+            entities:
+              - entity: switch.lmbt_lsynm_switch_1
+                icon: mdi:led-strip-variant
+                name: ليد السينما
+              - entity: switch.lmbt_lsynm_switch_2
+                icon: mdi:lightbulb-spot
+                name: لمبات السينما 1
+              - entity: switch.lmbt_lsynm_switch_3
+                icon: mdi:lightbulb-spot
+                name: لمبات السينما 2
+            title: لمبات السينما
+            show_header_toggle: true
+            state_color: true
+          - type: heading
+            icon: mdi:bed-empty
+            heading: جناح الشقة الغربية
+            heading_style: title
+            badges:
+              - type: entity
+                entity: binary_sensor.hss_ljnh_w_motion
+          - type: custom:mushroom-climate-card
+            entity: climate.mkyf_grf_jnh_lshq_lgrby
+            icon: mdi:air-conditioner
+            show_temperature_control: true
+            collapsible_controls: true
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+          - type: custom:mushroom-climate-card
+            entity: climate.mkyf_mtbkh_jnh_lshq_lgrby
+            icon: mdi:air-conditioner
+            show_temperature_control: true
+            collapsible_controls: true
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+          - type: custom:mushroom-light-card
+            entity: light.bjwr_ljnh
+            icon: mdi:lamp
+            show_brightness_control: true
+            use_light_color: true
+            show_color_temp_control: true
+            show_color_control: true
+            collapsible_controls: true
+            layout_options:
+              grid_columns: 8
+              grid_rows: 2
+        column_span: 2
+      - type: grid
+        cards: []
+    cards: []

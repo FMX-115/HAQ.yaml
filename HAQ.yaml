@@ -81,6 +81,14 @@ views:
                 state: below_horizon
           - type: entities
             entities:
+              - entity: switch.lyd_drj_lhwsh_lmmy
+                icon: mdi:led-strip-variant
+            visibility:
+              - condition: state
+                entity: sun.sun
+                state: below_horizon
+          - type: entities
+            entities:
               - entity: switch.lmbt_lswr
                 icon: mdi:outdoor-lamp
             state_color: true

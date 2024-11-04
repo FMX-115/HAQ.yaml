@@ -87,6 +87,8 @@ views:
               - condition: state
                 entity: sun.sun
                 state: below_horizon
+            state_color: true
+            show_header_toggle: false
           - type: entities
             entities:
               - entity: switch.lmbt_lswr
@@ -169,11 +171,11 @@ views:
             entities:
               - entity: light.bjwr_mlhq_lrjl
               - entity: switch.lmbt_mlhq_lrjl_switch_1
-                icon: mdi:led-strip-variant
+                icon: mdi:spotlight
               - entity: switch.lmbt_mlhq_lrjl_switch_2
                 icon: mdi:spotlight
               - entity: switch.lmbt_mlhq_lrjl_switch_3
-                icon: mdi:lightbulb-spot
+                icon: mdi:led-strip-variant
             title: لمبات ملحق الرجال
             state_color: true
             show_header_toggle: true
@@ -662,6 +664,11 @@ views:
             collapsible_controls: true
             layout_options:
               grid_columns: 8
+              grid_rows: 2
+          - type: entity
+            entity: sensor.gsl_jnh_lshq_lgrby
+            layout_options:
+              grid_columns: 4
               grid_rows: 2
         column_span: 2
       - type: grid

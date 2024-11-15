@@ -103,13 +103,16 @@ views:
             heading: الحوش الخلفي
             heading_style: title
             icon: mdi:fountain
-          - type: custom:mushroom-entity-card
-            entity: binary_sensor.hss_bb_by_w_door
-            name: حساس باب الجراج الخلفي
-            fill_container: false
-            layout_options:
-              grid_columns: 4
-              grid_rows: 1
+          - type: entities
+            entities:
+              - entity: binary_sensor.hss_bb_by_w_door
+                name: حساس باب القراج الخلفي
+              - entity: binary_sensor.hss_bb_lhwsh_lkhlfy_z_door
+                name: حساس باب الشارع الجنوبي
+              - entity: binary_sensor.hss_mdkhl_lhwsh_lkhlfy_z_motion
+                name: حساس مدخل الشارع الجنوبي
+            show_header_toggle: false
+            title: حساسات الحوش الخلفي
           - type: entities
             entities:
               - entity: switch.lmbt_lhdyq_lkhlfy_switch_1
@@ -667,6 +670,14 @@ views:
               grid_rows: 2
           - type: entity
             entity: sensor.gsl_jnh_lshq_lgrby
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+          - type: entity
+            entity: switch.lmb_blkwn_lsth_switch_1
+            icon: mdi:balcony
+            name: لمبة بلكونة السطح
+            state_color: true
             layout_options:
               grid_columns: 4
               grid_rows: 2

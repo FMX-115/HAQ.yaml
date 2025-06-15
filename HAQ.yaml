@@ -32,18 +32,48 @@ views:
               - condition: state
                 entity: sun.sun
                 state: below_horizon
+            icon: mdi:cube
           - type: custom:mushroom-cover-card
             entity: cover.jrj_lqsym_msg100_main_channel
-            name: جراج القصيم
+            name: كراج القصيم
             show_position_control: false
             show_tilt_position_control: false
             show_buttons_control: true
+            visibility:
+              - condition: user
+                users:
+                  - ad56ea10cf0341b4ad3ff91e71842132
+                  - c770863ca9c44604bcdf316de4e30696
+                  - 9e263224b4d24b7e9390820b16807b05
+                  - 7da71fd82d164285b52f9b68d4596d40
+                  - 246689f8a6db4657b523b8653fe23c4f
+                  - 86683587c6aa43b7a51073cc23097e7f
+                  - f841847054d44ece8b0a98af156d3c53
+                  - 66cde71c22d84e23b96d502fcc331def
+                  - 254a66e7b15c4bfeaa45ba1061c259f7
+                  - 7a7456a5bebf4879a79c27e4a7df8aeb
+                  - 18c1ec136e924fdd8e23ab6921df3d00
+                  - 2017d6d879ad4282bffe819f370d04c9
+                  - 3a67d85f36cb4d8a85fe65ceb49d335a
+                  - dee18cb65f2a4749a91e8a2631c49ee6
+            tap_action:
+              action: more-info
+            hold_action:
+              action: none
+            double_tap_action:
+              action: none
           - type: custom:mushroom-entity-card
-            entity: binary_sensor.hss_bb_lshr_lshmly_w_door
             name: باب الشارع الشمالي
             layout_options:
               grid_columns: 2
               grid_rows: 2
+            entity: binary_sensor.hss_bb_lshr_lshmly_z_door
+          - type: entity
+            entity: camera.living_room_live_view
+            name: كاميرة الشارع الشمالي
+            grid_options:
+              columns: 12
+              rows: 2
           - type: entity
             entity: switch.lmbt_lmsbh
             name: لمبات المسبح
@@ -111,16 +141,16 @@ views:
                 name: حساس باب الشارع الجنوبي
               - entity: binary_sensor.hss_mdkhl_lhwsh_lkhlfy_z_motion
                 name: حساس مدخل الشارع الجنوبي
+              - entity: binary_sensor.hss_mdkhl_lhwsh_lshmly_motion
+                name: حساس مدخل الشارع الشمالي
             show_header_toggle: false
             title: حساسات الحوش الخلفي
+            state_color: true
           - type: entities
             entities:
               - entity: switch.lmbt_lhdyq_lkhlfy_switch_1
                 icon: mdi:fountain
                 name: ‏لمبات الحديقة الخلفية
-              - entity: switch.lmb_lrtdd_lgrby_switch_1
-                icon: mdi:cube
-                name: لمبة الارتداد الغربي
               - entity: switch.lmbt_mlhq_lns_switch_1
                 icon: mdi:spotlight
                 name: لمبات ملحق النساء الخارجية
@@ -129,6 +159,9 @@ views:
               - entity: switch.lmbt_lmshb_lkhrjy_switch_1
                 name: لمبات المشب الخارجية
                 icon: mdi:spotlight
+              - entity: switch.lmb_lmmr_lgrby_switch_1
+                name: لمبة الممر الغربي
+                icon: mdi:cube
             state_color: true
             title: لمبات الحوش الخلفي
             visibility:
@@ -191,7 +224,7 @@ views:
             show_brightness_control: true
             show_color_control: true
             show_color_temp_control: true
-            collapsible_controls: false
+            collapsible_controls: true
           - type: heading
             heading_style: title
             heading: ملحق النساء
@@ -211,8 +244,6 @@ views:
                 name: ليد ملحق النساء
               - entity: switch.lmbt_mlhq_lns_switch_3
                 icon: mdi:lightbulb-spot
-              - entity: switch.lyd_tlfzywn_mlhq_lns_socket_1
-                icon: mdi:led-strip-variant
               - entity: switch.lmbt_mlhq_lns_switch_1
                 name: 'لمبات ملحق النساء الخارجية '
                 icon: mdi:spotlight
@@ -240,15 +271,24 @@ views:
               grid_columns: 4
               grid_rows: 2
             icon: mdi:ceiling-light-multiple
+            fill_container: false
           - type: entity
             entity: switch.mkyf_lmtbkh_switch_1
             icon: mdi:air-conditioner
             name: مكيف المطبخ
             state_color: true
-          - type: entity
-            entity: switch.lmbt_lmtbkh_2_switch_1
-            name: المروحة
-            icon: mdi:fan
+          - type: custom:mushroom-fan-card
+            entity: fan.lmbt_lmtbkh_2_switch_1
+            name: مروحة المطبخ
+            icon_animation: true
+            fill_container: false
+            show_percentage_control: false
+            show_oscillate_control: false
+            collapsible_controls: false
+            show_direction_control: false
+            grid_options:
+              columns: 6
+              rows: 2
           - type: entities
             entities:
               - entity: switch.lmbt_lmtbkh_1_switch_1
@@ -283,7 +323,13 @@ views:
             heading: مجلس النساء
             badges:
               - type: entity
+                show_state: true
+                show_icon: true
                 entity: binary_sensor.hss_we_z_motion
+                state_content:
+                  - state
+                  - last_changed
+                name: ‏حساس مدخل النساء 🟪
               - type: entity
                 entity: binary_sensor.hss_bb_we_z_door
           - type: custom:mushroom-climate-card
@@ -313,6 +359,7 @@ views:
                 icon: mdi:lightbulb-spot
               - entity: binary_sensor.hss_esf1_z_motion
                 name: 🟩 ‏حساس ‏درج الشقة الشرقية
+              - entity: binary_sensor.hss_bb_ese_z_door
               - entity: switch.lmb_mdkhl_lshq_lshrqy_switch_1
                 name: ‏لمبة مدخل الشقة الشرقية
                 icon: mdi:spotlight
@@ -322,13 +369,18 @@ views:
             state_color: true
             show_header_toggle: false
           - type: heading
-            icon: mdi:table-chair
+            icon: ''
             heading: المقلط
             heading_style: title
             badges:
               - type: entity
+                show_state: true
+                show_icon: true
                 entity: binary_sensor.hss_wsf1_z_motion
+                state_content: last_changed
               - type: entity
+                show_state: true
+                show_icon: true
                 entity: binary_sensor.hss_bb_wse_z_door
           - type: custom:mushroom-climate-card
             entity: climate.mkyf_lmqlt_1
@@ -363,7 +415,10 @@ views:
             heading_style: title
             badges:
               - type: entity
+                show_state: true
+                show_icon: true
                 entity: binary_sensor.hss_me_z_motion
+                state_content: last_changed
               - type: entity
                 entity: binary_sensor.hss_bb_me_z_door
           - type: custom:mushroom-climate-card
@@ -429,11 +484,18 @@ views:
             icon: mdi:air-conditioner
             collapsible_controls: true
             show_temperature_control: true
-            layout_options:
-              grid_columns: 4
-              grid_rows: 2
+            grid_options:
+              columns: 6
+              rows: 2
+          - type: custom:mushroom-climate-card
+            entity: climate.mkyf_lndy_2
+            icon: mdi:air-conditioner
+            show_temperature_control: false
+            grid_options:
+              columns: 6
+              rows: 2
           - type: custom:mushroom-light-card
-            entity: light.bjwr_lndy
+            entity: light.bjwrt_lshq_lshrqy
             show_brightness_control: true
             use_light_color: true
             show_color_temp_control: true
@@ -442,14 +504,7 @@ views:
             layout_options:
               grid_columns: 4
               grid_rows: 2
-            icon: mdi:lamp
-          - type: custom:mushroom-climate-card
-            entity: climate.mkyf_lndy_2
-            layout_options:
-              grid_columns: 4
-              grid_rows: 2
-            icon: mdi:air-conditioner
-            show_temperature_control: false
+            icon: mdi:lamps-outline
           - type: entities
             entities:
               - entity: switch.lmbt_lndy_switch_1
@@ -474,12 +529,14 @@ views:
             layout_options:
               grid_columns: 4
               grid_rows: 2
+            tap_action:
+              action: more-info
           - type: heading
             icon: mdi:bed
             heading: غرفة النوم القريبة من بار النادي
             heading_style: title
           - type: custom:mushroom-climate-card
-            entity: climate.mkyf_grf_lnwm_lqryb_mn_br_lndy
+            entity: climate.mkyf_lgrf_2
             name: مكيف غرفة البار
             icon: mdi:air-conditioner
             show_temperature_control: true
@@ -487,23 +544,12 @@ views:
             layout_options:
               grid_columns: 4
               grid_rows: 2
-          - type: custom:mushroom-cover-card
-            entity: cover.shutter_grf_lbr_curtain
-            icon: mdi:window-shutter
-            show_tilt_position_control: false
-            show_position_control: false
-            show_buttons_control: true
-            layout_options:
-              grid_columns: 4
-              grid_rows: 2
-            secondary_info: none
-            name: شتر غرفة البار
           - type: heading
             heading: غرفة النوم المطلة على المسبح
             heading_style: title
             icon: mdi:bed-king
           - type: custom:mushroom-cover-card
-            entity: cover.shutter_lgrf_lryysy_curtain
+            entity: cover.shutter_lgrf_2_curtain
             show_position_control: false
             show_tilt_position_control: false
             show_buttons_control: true
@@ -512,8 +558,9 @@ views:
               grid_columns: 4
               grid_rows: 2
             icon: mdi:window-shutter
+            name: شتر الغرفة ١
           - type: custom:mushroom-climate-card
-            entity: climate.mkyf_grf_lnwm_lmtl_lmsbh
+            entity: climate.mkyf_lgrf_1
             icon: mdi:air-conditioner
             show_temperature_control: true
             collapsible_controls: true
@@ -584,6 +631,8 @@ views:
                 name: لمبة غرفة البلكونة
               - entity: binary_sensor.hss_grf_lblkwn_z_motion
                 name: حساس غرفة البلكونة
+              - entity: light.bjwr_grf_lblkwn
+                icon: mdi:lamp
             state_color: true
             show_header_toggle: false
           - type: heading
@@ -595,24 +644,24 @@ views:
             icon: mdi:air-conditioner
             show_temperature_control: true
             collapsible_controls: true
-            layout_options:
-              grid_columns: 4
-              grid_rows: 2
+            grid_options:
+              columns: 6
+              rows: 2
           - type: custom:mushroom-climate-card
             icon: mdi:air-conditioner
-            layout_options:
-              grid_columns: 4
-              grid_rows: 2
             show_temperature_control: true
             collapsible_controls: true
             entity: climate.mkyf_mtbkh_lsynm
+            grid_options:
+              columns: 6
+              rows: 2
           - type: entities
             entities:
               - entity: switch.lmb_mtbkh_lsynm_switch_1
                 icon: mdi:wall-sconce
               - entity: switch.lmbt_mtbkh_lsynm_switch_1
                 icon: mdi:lightbulb-spot
-              - entity: binary_sensor.hss_mtbkh_lsynm_z_motion
+              - entity: binary_sensor.hss_mtbkh_lsynm_motion
                 name: 🟩 ‏حساس مطبخ السينما
             state_color: true
             show_header_toggle: true
@@ -638,25 +687,23 @@ views:
             icon: mdi:bed-empty
             heading: جناح الشقة الغربية
             heading_style: title
-            badges:
-              - type: entity
-                entity: binary_sensor.hss_ljnh_w_motion
+            badges: []
           - type: custom:mushroom-climate-card
-            entity: climate.mkyf_grf_jnh_lshq_lgrby
+            entity: climate.mkyf_ljnh
             icon: mdi:air-conditioner
             show_temperature_control: true
             collapsible_controls: true
-            layout_options:
-              grid_columns: 4
-              grid_rows: 2
+            grid_options:
+              columns: 6
+              rows: 2
           - type: custom:mushroom-climate-card
-            entity: climate.mkyf_mtbkh_jnh_lshq_lgrby
+            entity: climate.mkyf_mtbkh_ljnh
             icon: mdi:air-conditioner
             show_temperature_control: true
             collapsible_controls: true
-            layout_options:
-              grid_columns: 4
-              grid_rows: 2
+            grid_options:
+              columns: 6
+              rows: 2
           - type: custom:mushroom-light-card
             entity: light.bjwr_ljnh
             icon: mdi:lamp
@@ -667,11 +714,6 @@ views:
             collapsible_controls: true
             layout_options:
               grid_columns: 8
-              grid_rows: 2
-          - type: entity
-            entity: sensor.gsl_jnh_lshq_lgrby
-            layout_options:
-              grid_columns: 4
               grid_rows: 2
           - type: entity
             entity: switch.lmb_blkwn_lsth_switch_1
@@ -685,3 +727,9 @@ views:
       - type: grid
         cards: []
     cards: []
+    header:
+      card:
+        type: markdown
+        content: |-
+          # Hello {{ user }} 👋
+          كل شيء تحت سيطرتك — من الإضاءة إلى الأمان إلى الراحة 🌟
